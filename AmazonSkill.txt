@@ -1,0 +1,333 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "auto",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "typeone",
+                    "slots": [
+                        {
+                            "name": "intentslot",
+                            "type": "intentslot"
+                        },
+                        {
+                            "name": "utteranceslot",
+                            "type": "utteranceslot"
+                        },
+                        {
+                            "name": "numberslot",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "timeslot",
+                            "type": "AMAZON.DURATION"
+                        },
+                        {
+                            "name": "connectorslot",
+                            "type": "connectorslot"
+                        }
+                    ],
+                    "samples": [
+                        "{intentslot} {utteranceslot} by {numberslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} by {numberslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} by {numberslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} {utteranceslot} by {numberslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} to {numberslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} to {numberslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} to {numberslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} {utteranceslot} to {numberslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {numberslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {numberslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} {numberslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} {utteranceslot} {numberslot}",
+                        "{intentslot} {utteranceslot} to {numberslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} to {numberslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} to {numberslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} {utteranceslot} to {numberslot}",
+                        "{intentslot} {utteranceslot} by {numberslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} by {numberslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} by {numberslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} {utteranceslot} by {numberslot}",
+                        "{intentslot} {utteranceslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} {connectorslot} {timeslot}",
+                        "{intentslot} {utteranceslot} {utteranceslot} {utteranceslot} {utteranceslot} {connectorslot} {timeslot}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "intentslot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "restart",
+                                "synonyms": [
+                                    "reload",
+                                    "reboot",
+                                    "reset"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "set"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mute"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shutdown",
+                                "synonyms": [
+                                    "power off",
+                                    "shut down"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unlock"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lock"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "decrease"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "increase"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "change",
+                                "synonyms": [
+                                    "adjust"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "turn off",
+                                "synonyms": [
+                                    "stop",
+                                    "pause",
+                                    "close",
+                                    "disable",
+                                    "deactivate",
+                                    "switch off"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "turn on",
+                                "synonyms": [
+                                    "play",
+                                    "launch",
+                                    "open",
+                                    "enable",
+                                    "reconnect",
+                                    "connect",
+                                    "activate",
+                                    "switch on"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "utteranceslot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "a"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "the"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "my"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fluxional"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "epistrophe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apopemptic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nullibilism"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "xeroradiography"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "jejunator"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "quadragintesimal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "xenagogue"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "phycology"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "discombobulate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "crenel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "graveolent"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "gastrology"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ratihabition"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enantiosis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "semiology"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "agynary"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "jorum"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sauterelle"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "jesserant"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "peristeronic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "quaestor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "architectonics"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unkempt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "truculent"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "connectorslot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "at"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "in"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "for"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
