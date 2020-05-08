@@ -120,6 +120,7 @@ If this project helped your life in any way and you want to support its developm
 [GPL 3.0]
 
 ## To-do list
+* Add new "resume" intent
 * JSON DB Updater
 * Support for google assistant
 * Disable/enable specific flows
