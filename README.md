@@ -79,7 +79,7 @@ Current supported intents:
 * Reconnect
 
 Current supported utterences:
-* Any utterance, up to 4 words.
+* Any utterance, up to 4 words (Supports synonyms, just add a comma between each utterance you want).
 
 Current supported actions:
 * Open Program
