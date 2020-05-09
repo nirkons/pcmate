@@ -477,25 +477,9 @@ namespace PCMate
         //a method responsible of handling the clicks on the save button
         void SaveButton_Click(object sender, EventArgs e)
         {
-
-            //string newjson = @"{
-            //                        'id': '1',
-            //                        'userintentvalue': 'dick',
-            //                        'intent': 'turn on',
-            //                        'utterance': 'chrome',
-            //                        'synonyms': 'test,test,test',
-            //                        'actionlist': [
-            //                            {
-            //                                'actiontype': 'launch',
-            //                                'param1': 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\Chrome.exe',
-            //                                'param2':'youtube.com',
-            //                                'param3': '',
-            //                                'param4': '',
-            //                                'useractionvalue': 'Open Program'
-            //                            }
-            //                        ]
-            //                    }";
-            //Globals.jsondb = JsonConvert.DeserializeObject(newjson);
+            //return to top
+            FlowsContainer.VerticalScroll.Value = 0;
+            SendKeys.Send("+{TAB}");
 
             string newJson = "[";
             int index = 0;
@@ -515,11 +499,12 @@ namespace PCMate
                     //get the main branch id
                     string mainBranchId = mainBranchNameNameList[1];
 
+
                     //add value from the relevant main branch into the new json string
                     newJson += "\"id\":\"" + mainBranchId + "\",";
-                    newJson += "\"userintentvalue\":\"" + mainBranch.IntentSelectionValue.Text + "\",";
+                    newJson += "\"userintentvalue\":\"" + mainBranch.IntentSelectionValue.Text.Replace(@"""", @"\""") + "\",";
                     newJson += "\"intent\": \"" + mainBranch.IntentSelectionValue.Tag + "\",";
-                    newJson += "\"utterance\": \"" + mainBranch.UtterenceSelectionValue.Text + "\",";
+                    newJson += "\"utterance\": \"" + mainBranch.UtterenceSelectionValue.Text.Replace(@"""", @"\""") + "\",";
                     newJson += "\"synonyms\": \"\",";
 
                     //get the number of sub branches in each main branch
@@ -544,25 +529,25 @@ namespace PCMate
                         {
                             case "launch":
                                 string FileSelectControlParamValue = subBranch.FileSelectControlParamValue.Text == FileSelectParamsPlaceholder ? "" : subBranch.FileSelectControlParamValue.Text;
-                                actionlist += "\"param1\":\"" + subBranch.FileSelectControlFileName.Tag.ToString().Replace(@"\", @"\\") + "\",";
-                                actionlist += "\"param2\":\"" + FileSelectControlParamValue + "\",";
+                                actionlist += "\"param1\":\"" + subBranch.FileSelectControlFileName.Tag.ToString().Replace(@"""", @"\""").Replace(@"\", @"\\") + "\",";
+                                actionlist += "\"param2\":\"" + FileSelectControlParamValue.Replace(@"""", @"\""") + "\",";
                                 actionlist += "\"param3\":\"\",";
                                 actionlist += "\"param4\":\"\",";
                                 break;
                             case "setvolume":
-                                actionlist += "\"param1\":\"" + subBranch.SetVolumeControlValue.Text + "\",";
+                                actionlist += "\"param1\":\"" + subBranch.SetVolumeControlValue.Text.Replace(@"""", @"\""") + "\",";
                                 actionlist += "\"param2\":\"\",";
                                 actionlist += "\"param3\":\"\",";
                                 actionlist += "\"param4\":\"\",";
                                 break;
                             case "changevolume":
                                 actionlist += "\"param1\":\"" + ActionValueTypeTagsList[1] + "\",";
-                                actionlist += "\"param2\":\"" + subBranch.SetVolumeControlValue.Text + "\",";
+                                actionlist += "\"param2\":\"" + subBranch.SetVolumeControlValue.Text.Replace(@"""", @"\""") + "\",";
                                 actionlist += "\"param3\":\"\",";
                                 actionlist += "\"param4\":\"\",";
                                 break;
                             case "changeaudiodevice":
-                                actionlist += "\"param1\":\"" + subBranch.DropDownControlValue.Text + "\",";
+                                actionlist += "\"param1\":\"" + subBranch.DropDownControlValue.Text.Replace(@"""", @"\""") + "\",";
                                 actionlist += "\"param2\":\"\",";
                                 actionlist += "\"param3\":\"\",";
                                 actionlist += "\"param4\":\"\",";
@@ -577,7 +562,7 @@ namespace PCMate
                                 if (ActionValueTypeTagsList[1] == "delay")
                                 {
                                     actionlist += "\"param1\":\"" + ActionValueTypeTagsList[1] + "\",";
-                                    actionlist += "\"param2\":\"" + subBranch.DurationHhValue.Text + ":" + subBranch.DurationMmValue.Text + ":" + subBranch.DurationSsValue.Text + "\",";
+                                    actionlist += "\"param2\":\"" + subBranch.DurationHhValue.Text.Replace(@"""", @"\""") + ":" + subBranch.DurationMmValue.Text.Replace(@"""", @"\""") + ":" + subBranch.DurationSsValue.Text.Replace(@"""", @"\""") + "\",";
                                     actionlist += "\"param3\":\"\",";
                                     actionlist += "\"param4\":\"\",";
                                 }
@@ -593,13 +578,13 @@ namespace PCMate
                                 actionlist += "\"param4\":\"\",";
                                 break;
                             case "webhook":
-                                actionlist += "\"param1\":\"" + subBranch.WebhookControlValue.Text.Replace(@"\", @"\\") + "\",";
+                                actionlist += "\"param1\":\"" + subBranch.WebhookControlValue.Text.Replace(@"""", @"\""") + "\",";
                                 actionlist += "\"param2\":\"\",";
                                 actionlist += "\"param3\":\"\",";
                                 actionlist += "\"param4\":\"\",";
                                 break;
                         }
-                        actionlist += "\"useractionvalue\":\"" + subBranch.ChooseActionTypeValue.Text + "\"";
+                        actionlist += "\"useractionvalue\":\"" + subBranch.ChooseActionTypeValue.Text.Replace(@"""", @"\""") + "\"";
                         actionlist += s == 0 ? "}" : "},";
                     }
 

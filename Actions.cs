@@ -29,6 +29,8 @@ namespace PCMate
         [DllImport("user32.dll")]
         private static extern int SendMessage(int hWnd, int hMsg, int wParam, int lParam);
 
+        [DllImport("user32.dll")]
+        public static extern bool LockWorkStation();
 
         [DllImport("Powrprof.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
         public static extern bool SetSuspendState(bool hiberate, bool forceCritical, bool disableWakeEvent);
@@ -68,6 +70,14 @@ namespace PCMate
         public static void Launchprog(string ipath, string par)
         {
             var proc = System.Diagnostics.Process.Start(ipath, par);
+
+            //Alternative way of launching apps
+            //Process p = new Process();
+            //ProcessStartInfo startInfo = new ProcessStartInfo();
+            //startInfo.FileName = ipath;
+            //startInfo.Arguments = par;
+            //p.StartInfo = startInfo;
+            //p.Start();
         }
 
         public static void Setvol(double newvol)
@@ -138,6 +148,10 @@ namespace PCMate
                 //Application.SetSuspendState(PowerState.Hibernate, true, true);
 
             }
+            else if (func == "lock")
+            {
+                LockWorkStation();
+            }
         }
 
         public static void SendWebook(string url)
@@ -186,9 +200,6 @@ namespace PCMate
             {
                 Console.WriteLine("Could not set audio device");
             }
-
-
-
         }
 
     }

@@ -9,11 +9,8 @@ using System.Linq;
 
 namespace PCMate
 {
-
-
     static class Program
     {
-
         [STAThread]
         static void Main()
         {
