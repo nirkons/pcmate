@@ -151,6 +151,7 @@
                             "name": {
                                 "value": "turn on",
                                 "synonyms": [
+                                    "start",
                                     "slow down",
                                     "speed up",
                                     "rewind",
