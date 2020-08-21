@@ -1,6 +1,7 @@
 # PC Mate
 
 PC Automation with voice control and HomeAssistant (or other exposed endpoint)
+HomeAssistant Discussion: https://community.home-assistant.io/t/alpha-pcmate-otto-pc-automation-via-voice-controls
 
 ## Installation
 
