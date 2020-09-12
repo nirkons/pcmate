@@ -174,6 +174,15 @@ namespace PCMate
                     RemoveSettings("startminimized");
                 }
 
+                if (AudioDevicesChkbox.Checked == true)
+                {
+                    AddUpdateAppSettings("audiodevicesrefresh", "true");
+                }
+                else
+                {
+                    RemoveSettings("audiodevicesrefresh");
+                }
+
                 this.Close();
             
             }
@@ -252,6 +261,11 @@ namespace PCMate
                 minimizedCheckBox.Checked = false;
             }
 
+            string audiodevicesrefresh = ReadSetting("audiodevicesrefresh");
+            if (audiodevicesrefresh != "Not Found" && audiodevicesrefresh != "")
+            {
+                AudioDevicesChkbox.Checked = true;
+            }
 
 
         }
@@ -423,6 +437,11 @@ namespace PCMate
             }
 
             return String.Empty; // Not found
+        }
+
+        private void AudioDevicesChkbox_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

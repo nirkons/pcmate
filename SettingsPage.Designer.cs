@@ -39,6 +39,7 @@
             this.errorMsg = new System.Windows.Forms.Label();
             this.minimizedCheckBox = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.AudioDevicesChkbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // saveButton
@@ -64,7 +65,7 @@
             // autostartCheckbox
             // 
             this.autostartCheckbox.AutoSize = true;
-            this.autostartCheckbox.Location = new System.Drawing.Point(52, 102);
+            this.autostartCheckbox.Location = new System.Drawing.Point(52, 94);
             this.autostartCheckbox.Name = "autostartCheckbox";
             this.autostartCheckbox.Size = new System.Drawing.Size(117, 17);
             this.autostartCheckbox.TabIndex = 2;
@@ -123,7 +124,7 @@
             // minimizedCheckBox
             // 
             this.minimizedCheckBox.AutoSize = true;
-            this.minimizedCheckBox.Location = new System.Drawing.Point(52, 136);
+            this.minimizedCheckBox.Location = new System.Drawing.Point(52, 123);
             this.minimizedCheckBox.Name = "minimizedCheckBox";
             this.minimizedCheckBox.Size = new System.Drawing.Size(96, 17);
             this.minimizedCheckBox.TabIndex = 8;
@@ -141,12 +142,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // AudioDevicesChkbox
+            // 
+            this.AudioDevicesChkbox.AutoSize = true;
+            this.AudioDevicesChkbox.Location = new System.Drawing.Point(52, 151);
+            this.AudioDevicesChkbox.Name = "AudioDevicesChkbox";
+            this.AudioDevicesChkbox.Size = new System.Drawing.Size(182, 17);
+            this.AudioDevicesChkbox.TabIndex = 10;
+            this.AudioDevicesChkbox.Text = "Refresh audio devices on startup";
+            this.AudioDevicesChkbox.UseVisualStyleBackColor = true;
+            this.AudioDevicesChkbox.CheckedChanged += new System.EventHandler(this.AudioDevicesChkbox_CheckedChanged);
+            // 
             // SettingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(294, 230);
+            this.Controls.Add(this.AudioDevicesChkbox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.minimizedCheckBox);
             this.Controls.Add(this.errorMsg);
@@ -180,5 +193,6 @@
         private System.Windows.Forms.Label errorMsg;
         private System.Windows.Forms.CheckBox minimizedCheckBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox AudioDevicesChkbox;
     }
 }

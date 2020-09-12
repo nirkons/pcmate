@@ -6,6 +6,7 @@ using AudioSwitcher.AudioApi.CoreAudio;
 using System.Collections.Generic;
 using System.Windows.Forms.VisualStyles;
 using System.Linq;
+using System.Configuration;
 
 namespace PCMate
 {
@@ -22,27 +23,55 @@ namespace PCMate
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
 
-            //Get audio devices
-            List<string> audiodevices = new List<string>();
+            //Read Settings
+            string key = "audiodevicesrefresh";
+            string result = null;
             try
             {
-                IEnumerable<CoreAudioDevice> devices = new CoreAudioController().GetPlaybackDevices();
-
-                foreach (CoreAudioDevice d in devices)
-                {
-                    if (d.State.ToString() != "Disabled")
-                    {
-                        audiodevices.Add(d.FullName);
-                    }
-                    //Console.WriteLine(d.FullName);
-                }
-                Globals.audiodevices = audiodevices;
+                var appSettings = ConfigurationManager.AppSettings;
+                 result = appSettings[key] ?? "Not Found";
             }
-            catch
+            catch (ConfigurationErrorsException)
             {
-                audiodevices.Add("No audio devices found");
-                Globals.audiodevices = audiodevices;
+                var appSettings = ConfigurationManager.AppSettings;
+                 result = "Not Found";
             }
+            if (result == "true")
+            {
+                //Get audio devices
+                List<string> audiodevices = new List<string>();
+                try
+                {
+                    IEnumerable<CoreAudioDevice> devices = new CoreAudioController().GetPlaybackDevices();
+
+                    foreach (CoreAudioDevice d in devices)
+                    {
+                        if (d.State.ToString() != "Disabled")
+                        {
+                            audiodevices.Add(d.FullName);
+                        }
+                        //Console.WriteLine(d.FullName);
+                    }
+                    Globals.audiodevices = audiodevices;
+
+                    //Serialize list into Json
+                    var jsonaudio = JsonConvert.SerializeObject(audiodevices);
+                    File.WriteAllText(@"audiodevices.json", jsonaudio);
+
+                }
+                catch
+                {
+                    audiodevices.Add("No audio devices found");
+                    Globals.audiodevices = audiodevices;
+                }
+            }
+            else
+            {
+                LoadAudioDevicesJson();
+                //Globals.audiodevices.ForEach(Console.WriteLine);
+
+            }
+
 
 
             //Load DB on startup
@@ -78,8 +107,54 @@ namespace PCMate
 
         }
 
-
+        public static dynamic LoadAudioDevicesJson()
+        {
+            //Try to read the database file and if failed create an empty one
+            try
+            {
+                using (StreamReader r = new StreamReader("audiodevices.json"))
+                {
+                    string json = r.ReadToEnd();
+                    Globals.audiodevices = JsonConvert.DeserializeObject<List<string>>(json);
         
+                    return Globals.audiodevices;
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                List<string> audiodevices = new List<string>();
+                try
+                {
+                    IEnumerable<CoreAudioDevice> devices = new CoreAudioController().GetPlaybackDevices();
+
+                    foreach (CoreAudioDevice d in devices)
+                    {
+                        if (d.State.ToString() != "Disabled")
+                        {
+                            audiodevices.Add(d.FullName);
+                        }
+                        //Console.WriteLine(d.FullName);
+                    }
+                    Globals.audiodevices = audiodevices;
+
+                    //Serialize list into Json
+                    var jsonaudio = JsonConvert.SerializeObject(audiodevices);
+                    File.WriteAllText(@"audiodevices.json", jsonaudio);
+                    return Globals.audiodevices;
+
+                }
+                catch
+                {
+                    Globals.audiodevices = new List<string>();
+                    Globals.audiodevices.Add("No audio devices found, Check settings page");
+                    return Globals.audiodevices;
+                }
+            }
+
+        }
+
+
+
 
     }
 
