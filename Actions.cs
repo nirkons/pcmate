@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,7 +70,19 @@ namespace PCMate
 
         public static void Launchprog(string ipath, string par)
         {
-            var proc = System.Diagnostics.Process.Start(ipath, par);
+            try
+            {
+                var proc = System.Diagnostics.Process.Start(ipath, par);
+            }
+            catch
+            {
+                MessageBox.Show("Program does not exist in this path",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation,
+                MessageBoxDefaultButton.Button1);
+
+            }
 
             //Alternative way of launching apps
             //Process p = new Process();

@@ -44,10 +44,10 @@
             this.LastModifiedContainer = new System.Windows.Forms.TableLayoutPanel();
             this.LastMessage = new System.Windows.Forms.Label();
             this.LastMessageTitle = new System.Windows.Forms.Label();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.FlowsContainer = new System.Windows.Forms.Panel();
             this.AddMainBranchButtonTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.FlowsContainer = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -286,30 +286,6 @@
             this.LastMessageTitle.Text = "Last message:";
             this.LastMessageTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // AddMainBranchButtonTooltip
-            // 
-            this.AddMainBranchButtonTooltip.AutomaticDelay = 0;
-            this.AddMainBranchButtonTooltip.ToolTipTitle = "Add";
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.notifyIcon1.BalloonTipText = "Server is running";
-            this.notifyIcon1.BalloonTipTitle = "PCMate";
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "PCMate";
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
-            // 
-            // FlowsContainer
-            // 
-            this.FlowsContainer.AutoScroll = true;
-            this.FlowsContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.FlowsContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlowsContainer.Location = new System.Drawing.Point(26, 3);
-            this.FlowsContainer.Name = "FlowsContainer";
-            this.FlowsContainer.Size = new System.Drawing.Size(984, 474);
-            this.FlowsContainer.TabIndex = 1;
-            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 3;
@@ -325,6 +301,30 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 480F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(1058, 480);
             this.tableLayoutPanel6.TabIndex = 3;
+            // 
+            // FlowsContainer
+            // 
+            this.FlowsContainer.AutoScroll = true;
+            this.FlowsContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FlowsContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FlowsContainer.Location = new System.Drawing.Point(26, 3);
+            this.FlowsContainer.Name = "FlowsContainer";
+            this.FlowsContainer.Size = new System.Drawing.Size(984, 474);
+            this.FlowsContainer.TabIndex = 1;
+            // 
+            // AddMainBranchButtonTooltip
+            // 
+            this.AddMainBranchButtonTooltip.AutomaticDelay = 0;
+            this.AddMainBranchButtonTooltip.ToolTipTitle = "Add";
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.BalloonTipText = "Server is running";
+            this.notifyIcon1.BalloonTipTitle = "PCMate";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "PCMate";
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // MainApp
             // 
