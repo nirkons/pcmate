@@ -530,7 +530,7 @@ namespace PCMate
                             case "launch":
                                 string FileSelectControlParamValue = subBranch.FileSelectControlParamValue.Text == FileSelectParamsPlaceholder ? "" : subBranch.FileSelectControlParamValue.Text;
                                 actionlist += "\"param1\":\"" + subBranch.FileSelectControlFileName.Tag.ToString().Replace(@"""", @"\""").Replace(@"\", @"\\") + "\",";
-                                actionlist += "\"param2\":\"" + FileSelectControlParamValue.Replace(@"""", @"\""") + "\",";
+                                actionlist += "\"param2\":\"" + FileSelectControlParamValue.Replace(@"""", @"\""").Replace(@"\", @"\\") + "\",";
                                 actionlist += "\"param3\":\"\",";
                                 actionlist += "\"param4\":\"\",";
                                 break;
@@ -595,8 +595,17 @@ namespace PCMate
             newJson += "]";
 
             //Save new JSON to file and to global variable
-            File.WriteAllText(@"db.json", newJson);
-            Globals.jsondb = JsonConvert.DeserializeObject(newJson);
+            
+            try
+            {
+                Globals.jsondb = JsonConvert.DeserializeObject(newJson);
+                File.WriteAllText(@"db.json", newJson);
+            }
+            catch
+            {
+                MessageBox.Show("Error saving to database", "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             //run a function to set the save button to disabled
             ToggleSaveButtonState(SaveViewButton, false);
