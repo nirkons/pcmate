@@ -530,7 +530,7 @@ namespace PCMate
                             case "launch":
                                 string FileSelectControlParamValue = subBranch.FileSelectControlParamValue.Text == FileSelectParamsPlaceholder ? "" : subBranch.FileSelectControlParamValue.Text;
                                 actionlist += "\"param1\":\"" + subBranch.FileSelectControlFileName.Tag.ToString().Replace(@"""", @"\""").Replace(@"\", @"\\") + "\",";
-                                actionlist += "\"param2\":\"" + FileSelectControlParamValue.Replace(@"""", @"\""").Replace(@"\", @"\\") + "\",";
+                                @actionlist += "\"param2\":\"" + FileSelectControlParamValue.Replace(@"""", @"\""").Replace(@"\", @"\\") + "\",";
                                 actionlist += "\"param3\":\"\",";
                                 actionlist += "\"param4\":\"\",";
                                 break;
@@ -595,7 +595,7 @@ namespace PCMate
             newJson += "]";
 
             //Save new JSON to file and to global variable
-            
+            //Console.WriteLine(newJson);
             try
             {
                 Globals.jsondb = JsonConvert.DeserializeObject(newJson);

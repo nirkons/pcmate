@@ -144,7 +144,21 @@ namespace PCMate
         {
             if (func == "shutdown")
             {
-                Process.Start("shutdown", "/s /t 10");
+                var res = AutoClosingMessageBox.Show(
+                text: "Windows will shut down in 15 seconds",
+                caption: "Shutdown initiated",
+                timeout: 15000,
+                buttons: MessageBoxButtons.OKCancel,
+                defaultResult: DialogResult.OK);
+                if (res == DialogResult.OK)
+                {
+                    Process.Start("shutdown", "/s /t 2");
+                }
+                else
+                {
+                }
+
+                
 
             }
             else if (func == "sleep")

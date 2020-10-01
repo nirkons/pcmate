@@ -75,6 +75,9 @@
     <Reference Include="AudioSwitcher.AudioApi.CoreAudio, Version=4.0.0.308, Culture=neutral, PublicKeyToken=fda5729e2db3a64f, processorArchitecture=MSIL">
       <HintPath>packages\AudioSwitcher.AudioApi.CoreAudio.4.0.0-alpha5\lib\net45\AudioSwitcher.AudioApi.CoreAudio.dll</HintPath>
     </Reference>
+    <Reference Include="AutoClosingMessageBox, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\AutoClosingMessageBox.1.0.0.2\lib\net40\AutoClosingMessageBox.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
