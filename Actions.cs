@@ -144,6 +144,8 @@ namespace PCMate
         {
             if (func == "shutdown")
             {
+                System.Media.SystemSounds.Asterisk.Play();
+
                 var res = AutoClosingMessageBox.Show(
                 text: "Windows will shut down in 15 seconds",
                 caption: "Shutdown initiated",

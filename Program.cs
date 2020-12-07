@@ -18,6 +18,7 @@ namespace PCMate
             //Check if another instance is running and kill this one if it is
             if (System.Diagnostics.Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)).Count() > 1)
             {
+                System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Another instance of this application is already running", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
