@@ -37,10 +37,10 @@ service: shell_command.forwardjson
 * Hit Create skill, enter a skill name, under 'Choose a model to add to your skill' select "Custom" and under "Choose a method to host your skill's backend resources" select "Alexa-Hosted (Python)"
 
 * Under "Choose a template to add to your skill" select "Hello world skill", let it create the skill.
-* Under "Interaction model" click "JSON Editor" and paste the JSON code from [AmazonSkill](AmazonSkill.txt) 
+* Under "Interaction model" click "JSON Editor" and paste the JSON code from [AmazonSkill](AmazonSkill.json) 
  in this repository
 * Click Build model and let it build
-* Go to the "Code" page and replace all the code in "lambda_function.py" with the code from [AmazonLambdaFunction](AmazonLambdaFunction.txt) 
+* Go to the "Code" page and replace all the code in "lambda_function.py" with the code from [AmazonLambdaFunction](AmazonLambdaFunction.py) 
  in this repository while changing the "base_url" value to your HomeAssistant webhook endpoint from the automation.
 * Click Deploy and let it finish.
 * Head over to the "Test" page and select "Development" instead of "Off" in the dropdown menu at the top.
